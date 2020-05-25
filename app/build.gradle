@@ -1,0 +1,142 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.mocklist"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+
+    buildTypes {
+       release {
+           minifyEnabled false
+           proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+       }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation support_libraries
+
+    //View model
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    //Armadillo - Encrypted Shared Preference
+    implementation "at.favre.lib:armadillo:$preference_armadillo_version"
+
+    //dependency injection
+    implementation koin_libraries
+
+    //A powerful image ` and caching library for Android
+    implementation "io.coil-kt:coil:$coil_version"
+    implementation "io.coil-kt:coil-svg:$coil_version"
+    implementation "io.coil-kt:coil-gif:$coil_version"
+
+    //Navigation is a framework for navigating between 'destinations'
+    implementation navigation_libraries
+
+    //RxJava mBinding APIs for Android UI widgets from the platform and support libraries
+    implementation rxbinding_libraries
+
+    //co-routines
+    implementation coroutines_libraries
+
+    //A type-safe HTTP client
+    implementation retrofit_libraries
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //RX java
+    implementation "io.reactivex.rxjava2:rxjava:$rx_java_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
+
+    //Room database
+    implementation room_libraries
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "android.arch.persistence.room:compiler:$room_version"
+
+    //Support library
+    implementation "androidx.appcompat:appcompat:$support_library_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
+    //material design
+    implementation "com.google.android.material:material:$material_design_version"
+
+
+    //pagination library
+    implementation "androidx.paging:paging-runtime-ktx:$pagination_library_version"
+
+    implementation 'androidx.core:core-ktx:1.2.0'
+
+
+    //Testing
+    testImplementation "junit:junit:$test_junit_version"
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$test_espresso_version"
+
+
+
+
+    //top snackbar
+    implementation "com.androidadvance:topsnackbar:$snackbar_version"
+
+
+    //glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+
+    // add the Firebase SDK for Google Analytics
+    //implementation "com.google.firebase:firebase-analytics:$firebase_analytics"
+
+    // Add the Firebase SDK for Crashlytics.
+    //implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics_app"
+
+    // Add the dependency for the Performance Monitoring library
+    //implementation "com.google.firebase:firebase-perf:$firebase_perf"
+
+
+    //kotlinx-coroutines-core
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_core"
+
+
+    //ktx
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_ktx"
+}

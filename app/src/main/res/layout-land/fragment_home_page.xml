@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.mocklist.viewobservers.homePageViewObserver.HomePageViewObserver" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:elevation="@dimen/_04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                layout="@layout/appbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVerificationPhotoIdList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:visibility="@{data.dataVisibility}"
+            android:paddingTop="@dimen/_22"
+            android:layout_marginLeft="@dimen/_08"
+            android:layout_marginRight="@dimen/_08"
+            app:adapter="@{data.imageList}"
+            app:spanCount="7"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBar"
+            tools:listitem="@layout/image_list_item" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llNoDataLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{data.noDataVisibility}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBar">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                style="@style/FontRegular20"
+                android:text="@string/no_data_found"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_gradient_top"
+            app:layout_constraintBottom_toTopOf="@+id/appBar"
+            app:layout_constraintTop_toBottomOf="@+id/appBar"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="6dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
