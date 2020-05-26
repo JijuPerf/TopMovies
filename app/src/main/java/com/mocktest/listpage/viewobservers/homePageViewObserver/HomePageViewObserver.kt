@@ -6,16 +6,16 @@ import androidx.databinding.Bindable
 import androidx.databinding.library.baseAdapters.BR
 import androidx.paging.PagedList
 import com.mocktest.listpage.model.Content
-import com.mocktest.listpage.view.homepage.adapter.RomanticPageAdapter
+import com.mocktest.listpage.view.homepage.adapter.HomePageAdapter
 
 class HomePageViewObserver : BaseObservable()  {
 
-    private var mRomanticPageAdapter = RomanticPageAdapter()
+    private var mHomePageAdapter = HomePageAdapter()
     private var mIsDataFound: Boolean = true
     private var mNoDataFound: Boolean = false
 
     @Bindable
-    fun getImageList() =mRomanticPageAdapter
+    fun getImageList() =mHomePageAdapter
 
     @Bindable
     fun getDataVisibility() = if (mIsDataFound) View.VISIBLE else View.GONE
@@ -27,18 +27,18 @@ class HomePageViewObserver : BaseObservable()  {
      * fun to load the adapter with data
      */
 
-    fun setImgList(page: PagedList<Content>)
+    fun setAdapterDataList(page: PagedList<Content>)
     {
-        mRomanticPageAdapter.submitList(page)
-        mRomanticPageAdapter.notifyDataSetChanged()
+        mHomePageAdapter.submitList(page)
+        mHomePageAdapter.notifyDataSetChanged()
     }
 
     /**
      * fun to get data from adapter
      */
 
-    fun getAdapterList(): PagedList<Content>? {
-        return mRomanticPageAdapter.currentList
+    fun getAdapterDataList(): PagedList<Content>? {
+        return mHomePageAdapter.currentList
     }
 
 

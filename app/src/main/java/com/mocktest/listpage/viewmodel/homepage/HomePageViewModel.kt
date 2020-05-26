@@ -11,16 +11,16 @@ class HomePageViewModel(private val mHomeRepository: HomeRepository, private val
     /**
      * Function to load the Data from json file using pagination
      */
-    fun getDataList() = mHomeRepository.getDataListPaginated()
+    fun getPagedDataList() = mHomeRepository.getPaginatedDataList()
 
 
     /**
      * Function to load the Data when searching
      */
-    fun getDataListSearch(
+    fun getSearchDataList(
         query: String,
         adapterList: PagedList<Content>?
-    ) = mHomeRepository.getDataListPageSearch(query, adapterList)
+    ) = mHomeRepository.getSearchData(query, adapterList)
 
     /**
      * Function to load the Data when searching

@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.activity_home_page.*
 
 class HomePageActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController
-    private lateinit var navGraph: NavGraph
+    private lateinit var mNavController: NavController
+    private lateinit var mNavGraph: NavGraph
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +19,8 @@ class HomePageActivity : AppCompatActivity() {
 
         val navHostFragment = nav_host_fragment as NavHostFragment
         val graphInflater = navHostFragment.navController.navInflater
-        navGraph = graphInflater.inflate(R.navigation.home_navigation)
-        navController = navHostFragment.navController
+        mNavGraph = graphInflater.inflate(R.navigation.home_navigation)
+        mNavController = navHostFragment.navController
 
     }
 

@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivImg"
+            android:id="@+id/ivImagePreview"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_140"
             android:scaleType="fitXY"
@@ -20,8 +20,8 @@
             app:layout_constraintBottom_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvImgHeading"
-            style="@style/FontLight14"
+            android:id="@+id/tvTitle"
+            style="@style/FontLight16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_08"

@@ -10,7 +10,6 @@ import kotlinx.coroutines.MainScope
 abstract class BaseActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     private lateinit var mApplication: App
-    private  var mThemeCount:Int =0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

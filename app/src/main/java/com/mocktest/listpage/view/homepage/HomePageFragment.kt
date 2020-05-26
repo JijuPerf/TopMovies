@@ -36,12 +36,12 @@ class HomePageFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadButtonFunctionality()
-        loadData()
+        loadPagedData()
     }
 
     override fun onResume() {
         super.onResume()
-        loadData()
+        loadPagedData()
     }
 
 
@@ -49,12 +49,12 @@ class HomePageFragment : BaseFragment() {
      * Function to load the Data from json file using pagination
      */
 
-    private fun loadData(){
-        mViewModel.getDataList().observe(viewLifecycleOwner, Observer { page ->
-            mViewObserver.setImgList(page)
+    private fun loadPagedData(){
+        mViewModel.getPagedDataList().observe(viewLifecycleOwner, Observer { page ->
+            mViewObserver.setAdapterDataList(page)
             mViewObserver.setDataVisibility(true)
             mViewObserver.setNoDataVisibility(false)
-            tvAppBarHeading.text = mViewModel.getTitle()
+            tvHeading.text = mViewModel.getTitle()
         })
     }
 
@@ -63,19 +63,21 @@ class HomePageFragment : BaseFragment() {
      */
 
     private fun loadButtonFunctionality(){
+
         ivSearchListIcon.setRxOnClickListener {
-            llWhiteButton.visibility = View.GONE
-            tvAppBarHeading.visibility = View.GONE
+            llBackButton.visibility = View.GONE
+            tvHeading.visibility = View.GONE
             etSearchListView.visibility = View.VISIBLE
             etSearchListView.requestFocus()
             ivSearchListIcon.visibility = View.GONE
             Utils.showKeyboard(activity!!)
         }
+
         etSearchListView.setRxOnEditTextChangeAfter {
             if (it.length >= 3){
-                mViewModel.getDataListSearch(it, mViewObserver.getAdapterList()).observe(viewLifecycleOwner, Observer { page ->
+                mViewModel.getSearchDataList(it, mViewObserver.getAdapterDataList()).observe(viewLifecycleOwner, Observer { page ->
                     if (page.isNotEmpty()){
-                        mViewObserver.setImgList(page)
+                        mViewObserver.setAdapterDataList(page)
                         mViewObserver.setDataVisibility(true)
                         mViewObserver.setNoDataVisibility(false)
                     }else{
@@ -85,7 +87,7 @@ class HomePageFragment : BaseFragment() {
                 })
             }
             if (it.isEmpty()){
-                loadData()
+                loadPagedData()
             }
         }
 
@@ -96,18 +98,18 @@ class HomePageFragment : BaseFragment() {
                     // your action here
                     Utils.hideKeyboard(activity!!)
                     ivSearchListIcon.visibility = View.VISIBLE
-                    llWhiteButton.visibility = View.VISIBLE
-                    tvAppBarHeading.visibility = View.VISIBLE
+                    llBackButton.visibility = View.VISIBLE
+                    tvHeading.visibility = View.VISIBLE
                     etSearchListView.visibility = View.GONE
                     etSearchListView.text?.clear()
-                    loadData()
+                    loadPagedData()
                     return@OnTouchListener true
                 }
             }
             false
         })
 
-        llWhiteButton.setRxOnClickListener {
+        llBackButton.setRxOnClickListener {
             activity!!.finish()
         }
 

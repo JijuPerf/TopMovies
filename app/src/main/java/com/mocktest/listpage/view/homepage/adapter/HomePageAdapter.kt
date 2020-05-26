@@ -4,23 +4,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.mocktest.listpage.databinding.ImageListItemBinding
+import com.mocktest.listpage.databinding.PageListItemBinding
 import com.mocktest.listpage.model.Content
-import com.mocktest.listpage.view.homepage.viewholder.ImageListViewHolder
+import com.mocktest.listpage.view.homepage.viewholder.HomePageViewHolder
 
-class RomanticPageAdapter() :
-    PagedListAdapter<Content, ImageListViewHolder>(diffCallback) {
+class HomePageAdapter() :
+    PagedListAdapter<Content, HomePageViewHolder>(diffCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageListViewHolder {
-        val binding = ImageListItemBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomePageViewHolder {
+        val binding = PageListItemBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
-        return ImageListViewHolder(binding)
+        return HomePageViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ImageListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomePageViewHolder, position: Int) {
         getItem(position)?.let {
             holder.onBind(it)
         }

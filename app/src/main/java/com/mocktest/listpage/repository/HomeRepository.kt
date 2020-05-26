@@ -15,16 +15,16 @@ import java.io.BufferedReader
 
 class HomeRepository (private val mContext: Context, private val mSessionManager: SessionManager){
 
-    val itemSizeIn1 = 20
-    val itemSizeIn2 = 20 + itemSizeIn1
-    val itemSizeIn3 = 14 + itemSizeIn2
+    val itemSize1 = 20
+    val itemSize2 = 20 + itemSize1
+    val itemSize3 = 14 + itemSize2
     var currentPage = 1
 
     /**
      * Function to load the Data from json using pagination
      */
 
-    fun getDataListPaginated(): LiveData<PagedList<Content>> {
+    fun getPaginatedDataList(): LiveData<PagedList<Content>> {
         val pageDataSource = object : PageKeyedDataSource<Int, Content>() {
 
             override fun loadInitial(
@@ -43,20 +43,24 @@ class HomeRepository (private val mContext: Context, private val mSessionManager
                 params: LoadParams<Int>,
                 callback: LoadCallback<Int, Content>
             ) {
-                if(currentPage == 1){
-                    val inputStream = mContext.assets.open(AppConstants.SECOND_PAGE_LIST)
-                    val fileString = inputStream.bufferedReader().use(BufferedReader::readText)
-                    val imagePageList = Gson().fromJson(fileString, PageList::class.java)
-                    currentPage = Integer.valueOf(imagePageList.page.page_num)
-                    callback.onResult(imagePageList.page.content_items.content , itemSizeIn2)
-                }else if (currentPage == 2) {
-                    val inputStream = mContext.assets.open(AppConstants.LAST_PAGE_LIST)
-                    val fileString = inputStream.bufferedReader().use(BufferedReader::readText)
-                    val imagePageList = Gson().fromJson(fileString, PageList::class.java)
-                    currentPage = Integer.valueOf(imagePageList.page.page_num)
-                    callback.onResult(imagePageList.page.content_items.content , itemSizeIn3)
-                }else{
+                when (currentPage) {
+                    1 -> {
+                        val inputStream = mContext.assets.open(AppConstants.SECOND_PAGE_LIST)
+                        val fileString = inputStream.bufferedReader().use(BufferedReader::readText)
+                        val imagePageList = Gson().fromJson(fileString, PageList::class.java)
+                        currentPage = Integer.valueOf(imagePageList.page.page_num)
+                        callback.onResult(imagePageList.page.content_items.content , itemSize2)
+                    }
+                    2 -> {
+                        val inputStream = mContext.assets.open(AppConstants.LAST_PAGE_LIST)
+                        val fileString = inputStream.bufferedReader().use(BufferedReader::readText)
+                        val imagePageList = Gson().fromJson(fileString, PageList::class.java)
+                        currentPage = Integer.valueOf(imagePageList.page.page_num)
+                        callback.onResult(imagePageList.page.content_items.content , itemSize3)
+                    }
+                    else -> {
 
+                    }
                 }
             }
 
@@ -67,7 +71,7 @@ class HomeRepository (private val mContext: Context, private val mSessionManager
             }
 
         }
-        return getListingPage<Content>(pageDataSource)
+        return getPageListing<Content>(pageDataSource)
     }
 
 
@@ -77,7 +81,7 @@ class HomeRepository (private val mContext: Context, private val mSessionManager
      * @param data_list
      */
 
-    fun getDataListPageSearch(
+    fun getSearchData(
         query: String,
         adapterList: PagedList<Content>?
     ): LiveData<PagedList<Content>> {
@@ -108,14 +112,14 @@ class HomeRepository (private val mContext: Context, private val mSessionManager
             }
 
         }
-        return getListingPage<Content>(pageDataSource)
+        return getPageListing<Content>(pageDataSource)
     }
 
     /**
      * fun will return  page option of the file
      */
 
-    private fun <T> getListingPage(pageDataSource: DataSource<Int, T>): LiveData<PagedList<T>> {
+    private fun <T> getPageListing(pageDataSource: DataSource<Int, T>): LiveData<PagedList<T>> {
         val pagedListConfig = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
             .setPageSize(AppConstants.PAGINATION_PAGE_SIZE)

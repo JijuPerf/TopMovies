@@ -12,4 +12,14 @@ object AppConstants {
     const val LAST_PAGE_LIST= "list_page_3.json"
     const val PAGINATION_PAGE_SIZE: Int = 5
 
+    const val POSTER1 = "poster1.jpg"
+    const val POSTER2 = "poster2.jpg"
+    const val POSTER3 = "poster3.jpg"
+    const val POSTER4 = "poster4.jpg"
+    const val POSTER5 = "poster5.jpg"
+    const val POSTER6 = "poster6.jpg"
+    const val POSTER7 = "poster7.jpg"
+    const val POSTER8 = "poster8.jpg"
+    const val POSTER9 = "poster9.jpg"
+
 }
