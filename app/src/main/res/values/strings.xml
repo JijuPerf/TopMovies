@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MockList</string>
+    <string name="app_name">ListPage</string>
     <string name="Romantic_Comedy">Romantic Comedy</string>
     <string name="no_data_found">No Data Found</string>
     <string name="heading">Heading</string>

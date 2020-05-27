@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homePageFragment"
-        android:name="com.example.mocklist.view.homepage.HomePageFragment"
+        android:name="com.mocktest.listpage.view.homepage.HomePageFragment"
         android:label="HomePageFragment"
         tools:layout="@layout/fragment_home_page">
 

@@ -14,7 +14,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="FontLight14" parent="TextAppearance.AppCompat">
+    <style name="FontLight16" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/titilliumweb_light</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/white</item>
