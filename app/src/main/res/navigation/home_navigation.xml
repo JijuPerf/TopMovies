@@ -11,8 +11,20 @@
         android:label="HomePageFragment"
         tools:layout="@layout/fragment_home_page">
 
+        <action
+            android:id="@+id/action_homeFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
     </fragment>
 
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.mocktest.listpage.view.homepage.MovieDetailsFragment"
+        android:label="MovieDetailsFragment" />
 
 
 </navigation>

@@ -5,13 +5,28 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/nav_bar">
+    android:background="@color/list_bg_color">
 
-    <FrameLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="@dimen/_08"
-        android:paddingEnd="@dimen/_08">
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/llBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:padding="@dimen/_04">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:src="@drawable/back" />
+        </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvHeading"
@@ -19,56 +34,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
-            android:layout_marginStart="@dimen/_50"
+            android:layout_marginStart="@dimen/_15"
             android:text="@string/heading" />
 
-        <LinearLayout
-            android:id="@+id/llBackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginStart="@dimen/_08"
-            android:padding="@dimen/_04">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:cropToPadding="true"
-                android:src="@drawable/back" />
-        </LinearLayout>
-
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivSearchListIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            style="@style/FontRegular20"
-            android:layout_marginLeft="@dimen/_15"
-            android:layout_marginRight="@dimen/_15"
-            android:src="@drawable/search" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etSearchListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:inputType="text"
-            android:layout_gravity="right|center"
-            style="@style/FontRegular20"
-            android:layout_marginLeft="@dimen/_15"
-            android:layout_marginRight="@dimen/_15"
-            android:backgroundTint="@color/white"
-            android:textCursorDrawable="@color/white"
-            android:cursorVisible="true"
-            android:focusable="true"
-            android:drawableEnd="@drawable/ic_close" />
-
-
-    </FrameLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </androidx.appcompat.widget.Toolbar>

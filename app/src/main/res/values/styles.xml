@@ -14,9 +14,21 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="FontBold20" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/titilliumweb_bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="FontLight16" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/titilliumweb_light</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="FontBold18" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/titilliumweb_semibold</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/white</item>
     </style>
 

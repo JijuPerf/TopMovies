@@ -1,18 +1,19 @@
 package com.mocktest.listpage.injection
 
-import com.mocktest.listpage.managers.SessionManager
 import com.mocktest.listpage.repository.HomeRepository
+import com.mocktest.listpage.repository.api.RestAPIEntity
+import com.mocktest.listpage.repository.api.RestApiService
 import com.mocktest.listpage.viewmodel.homepage.HomePageViewModel
-import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 fun appModule() = module {
 
-    single { SessionManager(androidApplication()) }
+    single { RestApiService().getRetrofitInstance() }
+    single { RestApiService().create(get(), RestAPIEntity::class.java) }
 
-    single { HomeRepository(get(), get()) }
+    single { HomeRepository(get()) }
 
-    viewModel { HomePageViewModel(get(), get()) }
+    viewModel { HomePageViewModel(get()) }
 
 }

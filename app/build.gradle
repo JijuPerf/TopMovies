@@ -112,4 +112,7 @@ dependencies {
 
     //ktx
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_ktx"
+
+    //inspect data in chrome
+    implementation "com.facebook.stetho:stetho-okhttp3:$facebook_stetho_version"
 }

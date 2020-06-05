@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">ListPage</string>
+    <string name="app_name">TopMovies</string>
     <string name="Romantic_Comedy">Romantic Comedy</string>
     <string name="no_data_found">No Data Found</string>
-    <string name="heading">Heading</string>
+    <string name="heading">Top Movies</string>
+    <string name="api_key">ec01f8c2eb6ac402f2ca026dc2d9b8fd</string>
+    <string name="popularity">Popularity:</string>
+    <string name="vote">Vote:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="overview">Overview:</string>
 </resources>
