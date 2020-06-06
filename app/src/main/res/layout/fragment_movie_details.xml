@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.mocktest.listpage.viewobservers.homePageViewObserver.HomePageViewObserver" />
+            type="com.movie.topmovies.viewobservers.homePageViewObserver.HomePageViewObserver" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

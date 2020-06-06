@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homePageFragment"
-        android:name="com.mocktest.listpage.view.homepage.HomePageFragment"
+        android:name="com.movie.topmovies.view.homepage.HomePageFragment"
         android:label="HomePageFragment"
         tools:layout="@layout/fragment_home_page">
 
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.mocktest.listpage.view.homepage.MovieDetailsFragment"
+        android:name="com.movie.topmovies.view.homepage.MovieDetailsFragment"
         android:label="MovieDetailsFragment" />
 
 
