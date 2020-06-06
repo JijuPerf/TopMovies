@@ -2,6 +2,7 @@ package com.movie.topmovies.view.homepage
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,7 +44,6 @@ class HomePageFragment : BaseFragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         savedInstanceState?.let {
             previousSate = it.getBoolean("LOST_CONNECTION")
         }

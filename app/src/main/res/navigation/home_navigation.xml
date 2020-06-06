@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homePageFragment"
         android:name="com.movie.topmovies.view.homepage.HomePageFragment"
-        android:label="HomePageFragment"
+        android:label="fragment_home_page"
         tools:layout="@layout/fragment_home_page">
 
         <action
@@ -24,7 +24,16 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.movie.topmovies.view.homepage.MovieDetailsFragment"
-        android:label="MovieDetailsFragment" />
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_details">
+
+        <action
+            android:id="@+id/action_back"
+            app:destination="@id/homePageFragment"
+            app:popUpTo="@+id/homePageFragment"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
 
 
 </navigation>

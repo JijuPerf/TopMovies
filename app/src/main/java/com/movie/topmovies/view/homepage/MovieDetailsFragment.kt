@@ -16,7 +16,7 @@ import com.movie.topmovies.viewobservers.homePageViewObserver.HomePageViewObserv
 import kotlinx.android.synthetic.main.fragment_movie_details.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class MovieDetailsFragment : BaseFragment(), NetworkConnectivityListener {
+class MovieDetailsFragment : BaseFragment(){
 
     private var mViewObserver = HomePageViewObserver()
     private val mViewModel: HomePageViewModel by sharedViewModel()
@@ -45,17 +45,5 @@ class MovieDetailsFragment : BaseFragment(), NetworkConnectivityListener {
 
     private fun setData() {
         mViewObserver.setMovieData(mViewModel.getMovieDetails()!!)
-    }
-
-    override fun networkConnectivityChanged(event: Event) {
-        when (event) {
-            is Event.ConnectivityEvent -> {
-                if (event.state.isConnected) {
-                    Utils.showSnackBarOnline(clMainLayout, "You are Online !")
-                } else {
-                    Utils.showSnackBarOffline(clMainLayout, "You are Offline !")
-                }
-            }
-        }
     }
 }
