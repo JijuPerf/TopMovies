@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.movie.topmovies.viewobservers.homePageViewObserver.HomePageViewObserver" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/list_bg_color">
+
+            <LinearLayout
+                android:id="@+id/llBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_08">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:src="@drawable/back" />
+            </LinearLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgViewMovie"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_400"
+                    tools:src="@drawable/placeholder_for_missing_posters"
+                    loadImageFromURL="@{data.movePic}"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtViewTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blackOpacity70"
+                    android:text="@{data.movieTitle}"
+                    style="@style/FontBold20"
+                    android:paddingStart="@dimen/_15"
+                    android:paddingEnd="@dimen/_15"
+                    android:paddingTop="@dimen/_10"
+                    android:paddingBottom="@dimen/_10"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgViewMovie"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15"
+                    android:paddingLeft="@dimen/_15"
+                    android:paddingRight="@dimen/_15"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imgViewMovie">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtViewPopularity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            style="@style/FontBold18"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:text="@string/popularity"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtViewPopularityData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/_04"
+                            android:paddingStart="@dimen/_10"
+                            android:paddingEnd="@dimen/_10"
+                            style="@style/FontLight16"
+                            android:gravity="center"
+                            tools:text="@string/popularity"
+                            android:layout_toEndOf="@+id/txtViewPopularity"
+                            android:text="@{data.popularity}"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10"
+                        android:layout_gravity="center">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtViewVote"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            style="@style/FontBold18"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:text="@string/vote"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtViewVoteData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/_04"
+                            android:paddingStart="@dimen/_10"
+                            android:paddingEnd="@dimen/_10"
+                            style="@style/FontLight16"
+                            android:gravity="center"
+                            tools:text="@string/vote"
+                            android:layout_toEndOf="@+id/txtViewVote"
+                            android:text="@{data.vote}"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10"
+                        android:layout_gravity="center">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtViewDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            style="@style/FontBold18"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:text="@string/release_date"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtViewReleaseDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/_04"
+                            android:paddingStart="@dimen/_10"
+                            android:paddingEnd="@dimen/_10"
+                            style="@style/FontLight16"
+                            android:gravity="center"
+                            tools:text="@string/vote"
+                            android:layout_toEndOf="@+id/txtViewDate"
+                            android:text="@{data.releaseDate}"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtViewOverview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            style="@style/FontBold18"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:text="@string/overview"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtViewOverViewData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/_08"
+                            android:paddingBottom="@dimen/_10"
+                            style="@style/FontLight16"
+                            android:gravity="start"
+                            tools:text="@string/vote"
+                            android:layout_below="@+id/txtViewOverview"
+                            android:text="@{data.overView}"/>
+
+                    </RelativeLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.mocktest.listpage.viewobservers.homePageViewObserver.HomePageViewObserver" />
+            type="com.movie.topmovies.viewobservers.homePageViewObserver.HomePageViewObserver" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,8 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:elevation="0dp"
-            android:background="@color/list_bg_color">
+            app:elevation="@dimen/_10">
 
             <include
                 layout="@layout/appbar_layout"
@@ -46,7 +45,7 @@
             android:clipToPadding="false"
             android:paddingTop="@dimen/_22"
             android:layout_marginRight="@dimen/_08"
-            app:adapter="@{data.imageList}"
+            app:adapter="@{data.movieList}"
             app:spanCount="3"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +72,7 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <FrameLayout
+        <!--<FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60"
             android:layout_gravity="center"
@@ -81,8 +80,17 @@
             app:layout_constraintBottom_toTopOf="@+id/appBar"
             app:layout_constraintTop_toBottomOf="@+id/appBar"
             app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="6dp" />
+            tools:layout_editor_absoluteX="6dp" />-->
 
+
+        <include
+            android:id="@+id/rlProgress"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            layout="@layout/progressbar_layout"
+            android:visibility="@{data.progressVisibility}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
