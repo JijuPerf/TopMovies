@@ -1,5 +1,5 @@
 # TopMovies
-Top rated movie listing android application. Application lists nearly 7000 top rated movies across the world with their details like release date, popularity, votes and overview about the movie.Since the application requires network connection always to load the data app always check network status and notify the user using snackbar when there is a network connection failure.
+An android Kotlin Project, Top rated movie listing android application. Application lists nearly 7000 top rated movies across the world with their details like release date, popularity, votes and overview about the movie.Since the application requires network connection always to load the data app always check network status and notify the user using snackbar when there is a network connection failure.
 
 The Architecture used is MVVM and used Jetpack components like,
  1. Fragment
